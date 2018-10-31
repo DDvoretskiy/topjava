@@ -17,8 +17,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="row">
 
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Еда</th>
+            <th>Описание</th>
+            <th>Калории</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="$meals" var="$meal">
+            <jsp:useBean id="meals" class="ru.javawebinar.topjava.util.MealsUtil"/>
+            <tr>
+                <td>$meal</td>
+            </tr>
+        </c:forEach>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+            <td>john@example.com</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
