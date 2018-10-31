@@ -12,6 +12,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
+    <style>
+        .exceeded {
+            color:red;
+        }
+        .normal{
+            color:green;
+        }
+    </style>>
     <title>Meals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -34,18 +42,18 @@
         <tbody>
         <c:forEach items="${meals}" var="meal">
             <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.model.MealWithExceed"/>
-            <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
-                <td>
-                        <%--${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}--%>
-                        <%--<%=TimeUtil.toString(meal.getDateTime())%>--%>
-                        <%--${fn:replace(meal.dateTime, 'T', ' ')}--%>
-                        ${meal.dateTime}
-                </td>
-                <td>${meal.description}</td>
-                <td>${meal.calories}</td>
-            </tr>
+        <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
+            <td>
+                    <%--${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}--%>
+                    <%--<%=TimeUtil.toString(meal.getDateTime())%>--%>
+                    <%--${fn:replace(meal.dateTime, 'T', ' ')}--%>
+                    ${fn:formatDateTime(meal.dateTime)}
+            </td>
+            <td>${meal.description}</td>
+            <td>${meal.calories}</td>
+        </tr>
         </c:forEach>
-        <tr>
+    </table>
             <td>John</td>
             <td>Doe</td>
             <td>john@example.com</td>
