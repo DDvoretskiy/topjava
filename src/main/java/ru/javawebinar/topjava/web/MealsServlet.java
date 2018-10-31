@@ -16,7 +16,7 @@ public class MealsServlet extends HttpServlet {
     private static final Logger log = getLogger(MealsServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    log.debug("Запуск Meals");
+    log.debug("forward to Meals ");
     request.setAttribute("meals",MealsUtil.getWithExceeded(MealsUtil.MEALS,MealsUtil.DEFAULT_CALORIES_PER_DAY));
     request.getRequestDispatcher("meals.jsp").forward(request, response);
     }

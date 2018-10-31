@@ -9,17 +9,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>--%>
-<%@ taglib prefix="fn" uri="http://topjava.javawebinar.ru/functions" %>
+<%@ taglib prefix="ft" uri="http://topjava.javawebinar.ru/functions" %>
 <html>
 <head>
     <style>
         .exceeded {
-            color:red;
+            color: red;
         }
-        .normal{
-            color:green;
+
+        .normal {
+            color: green;
         }
-    </style>>
+    </style>
     <title>Meals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -28,39 +29,30 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="row"><a href = "index.html"><h5>Home</h5></a></div>
+
 <div class="container">
     <table class="table table-striped">
         <thead>
         <tr>
             <th>Дата</th>
-            <th>Еда</th>
             <th>Описание</th>
             <th>Калории</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${meals}" var="meal">
-            <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.model.MealWithExceed"/>
-        <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
-            <td>
-                   <%-- ${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}
-                    <%={TimeUtil}.toString(meal.getDateTime())%>
-                    ${fn:replace(meal.dateTime, 'T', ' ')}--%>
-                    ${fn:formatDateTime(meal.dateTime)}
-            </td>
-            <td>${meal.description}</td>
-            <td>${meal.calories}</td>
-        </tr>
+           <%-- <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.model.MealWithExceed"/>--%>
+            <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
+                <td>
+                        ${ft:formatDateTime(meal.dateTime)}
+                </td>
+                <td>${meal.description}</td>
+                <td>${meal.calories}</td>
+            </tr>
         </c:forEach>
-    </table
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            <td>john@example.com</td>
-        </tr>
         </tbody>
     </table>
+    <div class="row"><a href="index.html"><h5>Home</h5></a></div>
 </div>
 </body>
 </html>
