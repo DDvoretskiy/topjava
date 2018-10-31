@@ -2,6 +2,7 @@ package ru.javawebinar.topjava.web;
 
 import org.slf4j.Logger;
 import ru.javawebinar.topjava.model.MealWithExceed;
+import ru.javawebinar.topjava.util.MealsUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +17,7 @@ public class MealsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     log.debug("Запуск Meals");
-    request.setAttribute("meals",MealWithExceed);
-    request.getRequestDispatcher("/users.jsp").forward(request, response);
+    request.setAttribute("meals",MealsUtil.MEALS);
+    request.getRequestDispatcher("meals.jsp").forward(request, response);
     }
 }
