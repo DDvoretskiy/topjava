@@ -20,22 +20,25 @@
             color: green;
         }
     </style>
-    <title>Meals</title>
+    <title>Еда</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-
+<div class="row" style = "text-align: center; margin-top: 30px;">
+    <div class="col-6"><a href="meals?action=create"><h5>Добавить еду</h5></a></div>
+    <div class="col-6"><a href="index.html"><h5>Home</h5></a></div>
+</div>
 <div class="container">
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
         <thead>
         <tr>
             <th>Дата</th>
             <th>Описание</th>
             <th>Калории</th>
+            <th>Обновить</th>
+            <th>Добавить</th>
         </tr>
         </thead>
         <tbody>
@@ -48,17 +51,14 @@
                 <td>${meal.description}</td>
                 <td>${meal.calories}</td>
                 <td><a href="meals?action=update&id=${meal.id}">Update</td>
-                x
                 <td><a href="meals?action=delete&id=${meal.id}">Delete</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-    <div class="row">
-        <div class="col-6"><a href="meals?action=create"><h5>Добавить еду</h5></a></div>
-        <div class="col-6"><a href="index.html"><h5>Home</h5></a></div>
-    </div>
+
 
 </div>
+
 </body>
 </html>

@@ -18,7 +18,7 @@ public class Meal {
     }
 
     public Meal(Integer id,LocalDateTime dateTime, String description, int calories) {
-        this.id = null;
+        this.id = id;
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
